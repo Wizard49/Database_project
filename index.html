@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Word Animation</title>
+	<style>
+		/* Style the body of the page */
+		body {
+			background-color: #f2f2f2;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			height: 100vh;
+			overflow: hidden;
+			font-family: Arial, sans-serif;
+		}
+
+		/* Style the word element */
+		#word {
+			font-size: 3rem;
+			opacity: 0; /* Hide the element initially */
+			animation: fade 2s ease-in-out infinite; /* Apply the fade animation */
+		}
+
+        /*Define a background color*/
+        div {
+            background-color: gold;
+        }
+
+		/* Define the fade animation using keyframes */
+		@keyframes fade {
+			0% {
+				opacity: 0; /* Start with opacity 0 */
+			}
+			50% {
+				opacity: 1; /* Fade in the element */
+			}
+			100% {
+				opacity: 0; /* Fade out the element */
+            }
+		}
+	</style>
+</head>
+<body>
+	<!-- Create a div element with the word to animate -->
+	<div id="word">Site under construction !</div>
+
+	<script>
+		// Get a reference to the word element
+		const word = document.getElementById('word');
+
+		// Define an array of words to cycle through
+		const words = ['Site', 'under', 'construction'];
+
+		// Initialize the index to 0
+		let index = 0;
+
+		// Change the word every 2 seconds
+		setInterval(() => {
+			// Set the text of the word element to the current word
+			word.innerText = words[index];
+
+			// Increment the index, wrapping around to 0 when we reach the end
+			index = (index + 1) % words.length;
+		}, 2000);
+	</script>
+</body>
+</html>
